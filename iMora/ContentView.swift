@@ -86,7 +86,7 @@ struct inputText: View {
             
             Button {
                 Task {
-                    await viewModel.corregirTexto()
+                    //await viewModel.corregirTexto()
                     coordinator.dismissSheet()
                     
                 }

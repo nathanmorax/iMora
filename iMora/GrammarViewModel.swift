@@ -14,7 +14,7 @@ class GrammarViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     @Published var errorMessage: String?
     
-    func corregirTexto() async {
+   /* func corregirTexto() async {
         correctedText = ""
         errorMessage = nil
         isLoading = true
@@ -36,6 +36,6 @@ class GrammarViewModel: ObservableObject {
         }
         
         isLoading = false
-    }
+    }*/
     
 }
