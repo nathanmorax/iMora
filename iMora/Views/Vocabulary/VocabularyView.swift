@@ -7,6 +7,7 @@
 import SwiftUI
 
 
+@available(iOS 26.0, *)
 struct VocabularyView: View {
     @Environment(\.dismiss) var dismiss
     //@Binding var showInputText: Bool
@@ -63,9 +64,9 @@ struct VocabularyView: View {
 
 
 
-#Preview {
+/*#Preview {
     VocabularyView()
-}
+}*/
 
 
 struct Flashcard: Identifiable {

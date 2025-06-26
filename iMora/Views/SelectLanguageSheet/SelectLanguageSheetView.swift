@@ -7,6 +7,7 @@
 import SwiftUI
 
 
+@available(iOS 26.0, *)
 struct SelectLanguageSheetView: View {
     @EnvironmentObject var coordinator: Coordinator
     
@@ -24,6 +25,6 @@ struct SelectLanguageSheetView: View {
     }
 }
 
-#Preview(traits: .sizeThatFitsLayout) {
+/*#Preview(traits: .sizeThatFitsLayout) {
     SelectLanguageSheetView()
-}
+}*/

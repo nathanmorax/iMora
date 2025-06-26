@@ -7,9 +7,10 @@
 import SwiftUI
 
 
+@available(iOS 26.0, *)
 struct CorrectionResultsView: View {
     
-    @ObservedObject var viewModel: GrammarViewModel
+    @ObservedObject var viewModel: GrammarCorrectionViewModel
     
     var body: some View {
         TabView {

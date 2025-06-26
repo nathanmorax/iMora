@@ -4,11 +4,12 @@
 //
 //  Created by Jonathan Mora on 25/06/25.
 //
-import SwiftUI
+/*import SwiftUI
+import Network
 
 struct InternetStatusView: View {
     
-    var networkMonitor: NetworkMonitor
+    //var networkMonitor: NetworkMonitor
     var body: some View {
         
         VStack {
@@ -21,4 +22,4 @@ struct InternetStatusView: View {
         }
        
     }
-}
+}*/

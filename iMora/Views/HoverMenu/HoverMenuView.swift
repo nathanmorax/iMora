@@ -6,6 +6,7 @@
 //
 import SwiftUI
 
+@available(iOS 26.0, *)
 struct HoverMenuView: View {
     @EnvironmentObject var coordinator: Coordinator
     @Binding var showBlur: Bool
@@ -90,7 +91,7 @@ struct HoverMenuView: View {
     
 }
 
-struct FloatingMenu_PreviewWrapper: View {
+/*struct FloatingMenu_PreviewWrapper: View {
     @State private var showBlur = false
     @StateObject private var coordinator = Coordinator(grammarViewModel: GrammarViewModel())
 
@@ -106,5 +107,5 @@ struct FloatingMenu_PreviewWrapper: View {
 
 #Preview("FloatingMenu", traits: .sizeThatFitsLayout) {
     FloatingMenu_PreviewWrapper()
-}
+}*/
 

@@ -6,10 +6,11 @@
 //
 import SwiftUI
 
+@available(iOS 26.0, *)
 struct HomeView: View {
-    @ObservedObject var viewModel: GrammarViewModel
+    @ObservedObject var viewModel: GrammarCorrectionViewModel
     @EnvironmentObject var coordinator: Coordinator
-    @ObservedObject var networkMonitor = NetworkMonitor.shared
+   // @ObservedObject var networkMonitor = InternetStatusView.shared
     
     
     var body: some View {
@@ -17,7 +18,7 @@ struct HomeView: View {
             Color.black.ignoresSafeArea()
             
             VStack {
-                InternetStatusView(networkMonitor: networkMonitor)
+               // InternetStatusView(networkMonitor: networkMonitor)
                 
                 
                 CorrectionResultsView(viewModel: viewModel)
@@ -40,8 +41,8 @@ struct HomeView: View {
     }
 }
 
-
+/*
 #Preview {
-    HomeView(viewModel: GrammarViewModel())
-        .environmentObject(Coordinator(grammarViewModel: GrammarViewModel()))
-}
+    HomeView(viewModel: GrammarCorrectionViewModel())
+        .environmentObject(Coordinator(grammarViewModel: GrammarCorrectionViewModel()))
+}*/

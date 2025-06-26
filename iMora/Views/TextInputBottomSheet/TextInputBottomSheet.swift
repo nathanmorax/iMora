@@ -6,8 +6,9 @@
 //
 import SwiftUI
 
+@available(iOS 26.0, *)
 struct TextInputBottomSheet: View {
-    @ObservedObject var viewModel: GrammarViewModel
+    @ObservedObject var viewModel: GrammarCorrectionViewModel
     @EnvironmentObject var coordinator: Coordinator
     
     
@@ -18,7 +19,7 @@ struct TextInputBottomSheet: View {
             
             Button {
                 Task {
-                    //await viewModel.corregirTexto()
+                    await viewModel.fixGrammar()
                     coordinator.dismissSheet()
                     
                 }
@@ -37,6 +38,3 @@ struct TextInputBottomSheet: View {
     }
 }
 
-#Preview(traits: .sizeThatFitsLayout) {
-    TextInputBottomSheet(viewModel: GrammarViewModel())
-}

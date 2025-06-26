@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 26.0, *)
 class Coordinator: ObservableObject {
     @Published var path: NavigationPath = NavigationPath()
     @Published var sheet: Sheet?
@@ -14,9 +15,9 @@ class Coordinator: ObservableObject {
     @Published var showBlur: Bool = false
     
 
-    let grammarViewModel: GrammarViewModel
+    let grammarViewModel: GrammarCorrectionViewModel
 
-    init(grammarViewModel: GrammarViewModel) {
+    init(grammarViewModel: GrammarCorrectionViewModel) {
         self.grammarViewModel = grammarViewModel
     }
 

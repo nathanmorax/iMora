@@ -9,13 +9,17 @@ import SwiftUI
 
 @main
 struct iMoraApp: App {
-    init() {
+    /*init() {
            _ = NetworkMonitor.shared
-       }
+       }*/
     var body: some Scene {
        
         WindowGroup {
-            CoordinatorView()
+            if #available(iOS 26.0, *) {
+                CoordinatorView()
+            } else {
+                // Fallback on earlier versions
+            }
         }
     }
 }

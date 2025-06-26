@@ -7,12 +7,13 @@
 import SwiftUI
 
 
+@available(iOS 26.0, *)
 struct CoordinatorView: View {
-    @StateObject private var grammarViewModel = GrammarViewModel()
+    @StateObject private var grammarViewModel = GrammarCorrectionViewModel()
     @StateObject private var coordinator: Coordinator
 
     init() {
-        let grammarViewModel = GrammarViewModel()
+        let grammarViewModel = GrammarCorrectionViewModel()
         _grammarViewModel = StateObject(wrappedValue: grammarViewModel)
         _coordinator = StateObject(wrappedValue: Coordinator(grammarViewModel: grammarViewModel))
     }
