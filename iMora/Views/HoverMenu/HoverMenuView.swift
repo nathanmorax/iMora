@@ -6,11 +6,11 @@
 //
 import SwiftUI
 
-struct FloatingMenu: View {
+struct HoverMenuView: View {
     @EnvironmentObject var coordinator: Coordinator
     @Binding var showBlur: Bool
     @State private var showMenu = false
-    @State private var selectedAction: FloatingMenuAction? = nil
+    @State private var selectedAction: HoverMenuItem? = nil
     @State private var showSheet = false
     @State private var showGrammarFullScreen = false
     
@@ -27,8 +27,8 @@ struct FloatingMenu: View {
                     if showMenu {
                         Spacer()
 
-                        ForEach(FloatingMenuAction.allCases) { action in
-                            FloatingMenuOptions(item: action,
+                        ForEach(HoverMenuItem.allCases) { action in
+                            HoverMenuItemView(item: action,
                                                 isSelected: selectedAction == action) {
                                 selectedAction = action
                                 handleMenuAction(action)
@@ -71,16 +71,16 @@ struct FloatingMenu: View {
     
     
     
-    private func handleMenuAction(_ action: FloatingMenuAction) {
+    private func handleMenuAction(_ action: HoverMenuItem) {
         withAnimation {
             showMenu = false
         }
         
         switch action {
-        case .writter:
+        case .writer:
             coordinator.presentSheet(.inputText)
             showBlur = false
-        case .translater:
+        case .translator:
             coordinator.presentSheet(.translater)
         case .vocabulary:
             coordinator.presentFullScreenCover(.vocabulary)
@@ -97,7 +97,7 @@ struct FloatingMenu_PreviewWrapper: View {
     var body: some View {
         ZStack {
             Color.black.ignoresSafeArea()
-            FloatingMenu(showBlur: $showBlur)
+            HoverMenuView(showBlur: $showBlur)
                 .environmentObject(coordinator)
         }
     }

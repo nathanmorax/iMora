@@ -4,41 +4,39 @@
 //
 //  Created by Jonathan Mora on 21/05/25.
 //
+
 import SwiftUI
 
-enum FloatingMenuAction: CaseIterable, Identifiable, FloatingMenuItem {
-    case writter
+enum HoverMenuItem: CaseIterable, Identifiable, HoverMenuItemProtocol {
+    case writer
     case vocabulary
-    case translater
-    
+    case translator
     
     var id: Self { self }
     
     var title: String {
         switch self {
-        case .writter: return "Writter"
+        case .writer: return "Writer"
         case .vocabulary: return "Vocabulary"
-        case .translater: return "Translater"
+        case .translator: return "Translator"
         }
     }
     
     var icon: String {
         switch self {
-        case .writter: return "pencil"
+        case .writer: return "pencil"
         case .vocabulary: return "textformat.alt"
-        case .translater: return "translate"
+        case .translator: return "translate"
         }
     }
 }
 
-
-protocol FloatingMenuItem: Identifiable, CaseIterable {
+protocol HoverMenuItemProtocol: Identifiable, CaseIterable {
     var title: String { get }
     var icon: String { get }
 }
 
-
-struct FloatingMenuOptions<Item: FloatingMenuItem>: View {
+struct HoverMenuItemView<Item: HoverMenuItemProtocol>: View {
     let item: Item
     let isSelected: Bool
     let onTap: () -> Void
@@ -50,24 +48,22 @@ struct FloatingMenuOptions<Item: FloatingMenuItem>: View {
                     .prefixedWithSFSymbol(named: item.icon)
             }
         }
-        .buttonStyle(FloatingOptionsButtonStyle(isSelected: isSelected))
+        .buttonStyle(HoverOptionsButtonStyle(isSelected: isSelected))
     }
 }
 
-
 #Preview(traits: .sizeThatFitsLayout) {
-    FloatingMenuOptions(
-        item: FloatingMenuAction.vocabulary,
-        isSelected: true,
-        onTap: {}
-    )
-    FloatingMenuOptions(
-        item: FloatingMenuAction.translater,
-        isSelected: true,
-        onTap: {}
-    )
+    VStack {
+        HoverMenuItemView(
+            item: HoverMenuItem.vocabulary,
+            isSelected: true,
+            onTap: {}
+        )
+        HoverMenuItemView(
+            item: HoverMenuItem.translator,
+            isSelected: false,
+            onTap: {}
+        )
+    }
     .padding()
 }
-
-
-

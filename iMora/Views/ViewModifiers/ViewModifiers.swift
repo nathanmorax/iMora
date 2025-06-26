@@ -134,7 +134,7 @@ struct ButtonXmarxStyle: ButtonStyle {
     }
 }
 
-struct FloatingOptionsButtonStyle: ButtonStyle {
+struct HoverOptionsButtonStyle: ButtonStyle {
     var isSelected: Bool = false
     
     func makeBody(configuration: Configuration) -> some View {

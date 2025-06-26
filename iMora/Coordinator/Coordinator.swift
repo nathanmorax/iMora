@@ -59,7 +59,7 @@ class Coordinator: ObservableObject {
     func build(page: AppPages) -> some View {
         switch page {
         case .main:
-            ContentView(viewModel: grammarViewModel)
+            HomeView(viewModel: grammarViewModel)
         }
     }
 
@@ -67,9 +67,9 @@ class Coordinator: ObservableObject {
     func buildSheet(sheet: Sheet) -> some View {
         switch sheet {
         case .inputText:
-            inputText(viewModel: grammarViewModel)
+            TextInputBottomSheet(viewModel: grammarViewModel)
         case .translater:
-            TranslaterView()
+            SelectLanguageSheetView()
         }
     }
 
