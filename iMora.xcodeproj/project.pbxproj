@@ -10,22 +10,9 @@
 		2D37F9CC2DD960C400C0EF93 /* iMora.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMora.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		2D37F9DE2DD9647C00C0EF93 /* Exceptions for "iMora" folder in "iMora" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				NetworkError.swift,
-			);
-			target = 2D37F9CB2DD960C400C0EF93 /* iMora */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		2D37F9CE2DD960C400C0EF93 /* iMora */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				2D37F9DE2DD9647C00C0EF93 /* Exceptions for "iMora" folder in "iMora" target */,
-			);
 			path = iMora;
 			sourceTree = "<group>";
 		};
