@@ -144,7 +144,7 @@ struct HoverOptionsButtonStyle: ButtonStyle {
             .padding()
             .frame(maxWidth: .infinity, alignment: .leading)
             .frame(maxWidth: 190)
-            .background(isSelected ? Color.Button.primaryButton : Color.gray.opacity(0.3))
+            //.background(isSelected ? Color.Button.primaryButton : Color.gray.opacity(0.3))
             .cornerRadius(18)
             .opacity(configuration.isPressed ? 0.7 : 1.0)
     }

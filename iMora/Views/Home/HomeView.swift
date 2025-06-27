@@ -20,19 +20,16 @@ struct HomeView: View {
             VStack {
                // InternetStatusView(networkMonitor: networkMonitor)
                 
-                
                 CorrectionResultsView(viewModel: viewModel)
                
                 
             }
-            .blur(radius: coordinator.showBlur ? 12 : 0)
+            //.blur(radius: coordinator.showBlur ? 12 : 0)
             
             HStack {
                 
                 Spacer()
-                
                 HoverMenuView(showBlur: $coordinator.showBlur)
-                
             }
             .padding(.horizontal, 24)
             .padding(.bottom, 32)

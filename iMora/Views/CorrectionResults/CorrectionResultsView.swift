@@ -28,6 +28,7 @@ struct CorrectionResultsView: View {
                 }
 
         }
+
         .customTabViewStyle()
 
     }

@@ -14,8 +14,7 @@ struct HoverMenuView: View {
     @State private var selectedAction: HoverMenuItem? = nil
     @State private var showSheet = false
     @State private var showGrammarFullScreen = false
-    
-    
+    @Namespace private var namespace
     
     var body: some View {
         ZStack {
@@ -24,33 +23,41 @@ struct HoverMenuView: View {
             HStack {
                 Spacer()
                 
-                VStack(alignment: .trailing, spacing: 8) {
-                    if showMenu {
-                        Spacer()
+                GlassEffectContainer(spacing: 8.0) {
+                    VStack(alignment: .trailing, spacing: 8) {
+                        if showMenu {
+                            Spacer()
 
-                        ForEach(HoverMenuItem.allCases) { action in
-                            HoverMenuItemView(item: action,
-                                                isSelected: selectedAction == action) {
-                                selectedAction = action
-                                handleMenuAction(action)
+                            ForEach(HoverMenuItem.allCases, id: \.self) { action in
+                                HoverMenuItemView(item: action,
+                                                    isSelected: selectedAction == action) {
+                                    selectedAction = action
+                                    handleMenuAction(action)
+                                }
+                                .glassEffect()
+                                .glassEffectID("menu-item-\(action.hashValue)", in: namespace)
                             }
+                            .transition(.move(edge: .trailing).combined(with: .slide))
                         }
-                        .transition(.move(edge: .trailing).combined(with: .slide))
-                    }
 
-                    if !showMenu {
-                        Button {
-                            withAnimation {
-                                showMenu.toggle()
-                                showBlur = showMenu
+                        if !showMenu {
+                            Button {
+                                withAnimation {
+                                    showMenu.toggle()
+                                    showBlur = showMenu
+                                }
+                            } label: {
+                                Image(systemName: "text.word.spacing")
                             }
-                        } label: { Image(systemName: "text.word.spacing") }.buttonStyle(FloatigButtonMenuStyle())
+                            .buttonStyle(.glass)
+                            .glassEffect()
+                            .glassEffectID("main-button", in: namespace)
+                        }
                     }
                 }
             }
         }
         .zIndex(1)
-        
     }
     
     private var removoBlur: some View {
@@ -70,8 +77,6 @@ struct HoverMenuView: View {
         }
     }
     
-    
-    
     private func handleMenuAction(_ action: HoverMenuItem) {
         withAnimation {
             showMenu = false
@@ -87,10 +92,7 @@ struct HoverMenuView: View {
             coordinator.presentFullScreenCover(.vocabulary)
         }
     }
-    
-    
 }
-
 /*struct FloatingMenu_PreviewWrapper: View {
     @State private var showBlur = false
     @StateObject private var coordinator = Coordinator(grammarViewModel: GrammarViewModel())
